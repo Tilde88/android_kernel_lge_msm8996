@@ -69,6 +69,57 @@ config HOTPLUG_PCI_ACPI_IBM
 
 	  When in doubt, say N.
 
+config MAKO_HOTPLUG
+	bool "Mako Hotplug"
+	default n
+	help
+	  Mako Hotplug: A custom hotplug by fransico franco
+
+config MSM_HOTPLUG
+	config MSM_HOTPLUG
+	bool "MSM hotplug driver"
+	depends on HOTPLUG_CPU
+	default n
+	  help
+	  The MSM hotplug driver controls on-/offlining of additional
+	  cores based on current cpu load.
+
+config ALUCARD_HOTPLUG
+	bool "Enable alucard-hotplug cpu hotplug driver"
+	default n
+	help
+	  Generic Alucard-hotplug cpu hotplug driver for ARM SOCs
+
+config ZEN_DECISION
+	bool "Zen Decision: MSM Userspace Handler"
+	depends on SMP && FB
+	default n
+	help
+	  ZEND
+
+config BRICKED_HOTPLUG
+	bool "Enable kernel based mpdecision"
+	depends on MSM_RUN_QUEUE_STATS
+	default n
+	help
+	 This enables kernel based multi core control.
+	 (up/down hotplug based on load)
+
+config ASMP
+    bool "Multi-core automatic hotplug support"
+    depends on SMP
+    default n
+    help
+      Automatically hotplugs the multiple cpu cores on and off
+      based on cpu load and suspend state
+
+config INTELLI_PLUG
+	bool "Intelliplug driver"
+	depends on MSM_RUN_QUEUE_STATS
+	default y
+	help
+	  This enables kernel based multi core control. Best Choice for Razor Reborn
+
 config HOTPLUG_PCI_CPCI
 	bool "CompactPCI Hotplug driver"
 	help
